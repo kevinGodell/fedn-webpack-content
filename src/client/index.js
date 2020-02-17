@@ -1,7 +1,7 @@
-import { checkForName } from './js/nameChecker'
-import { handleSubmit } from './js/formHandler'
+'use strict';
 
-console.log(checkForName);
+import { submitForm } from './js/formHandler';
 
-alert("I EXIST")
-console.log("CHANGE!!");
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', submitForm);
+});

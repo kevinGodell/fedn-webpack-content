@@ -1,22 +1,16 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+const express = require('express');
+const mockAPIResponse = require('./mockAPI.js');
+const app = express();
 
-const app = express()
+if (process.env.NODE_ENV !== 'development') {
+  app.use(express.static('dist'));
+}
 
-app.use(express.static('dist'))
-
-console.log(__dirname)
-
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-})
+app.get('/test', (req, res) => {
+  res.send(mockAPIResponse);
+});
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
-})
-
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+app.listen(3000, () => {
+  console.log('Example app listening on port http://localhost:3000!');
+});

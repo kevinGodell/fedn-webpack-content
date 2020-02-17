@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "colours": true,
+  "watch": ["src/server"],
+  "ext": "js",
+  "delay": 2000,
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "*"
+  }
+}
