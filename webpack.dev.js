@@ -53,6 +53,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       hash: true,
       title: 'Development settings',
+      somethingElse: 'custom property can be accessed in template',
       inject: true,
       chunks: ['settings'],
       template: './src/client/views/settings.html',
