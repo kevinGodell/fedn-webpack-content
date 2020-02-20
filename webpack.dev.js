@@ -26,12 +26,18 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    libraryTarget: 'var',
+    library: 'Client'
   },
   plugins: [
     new ProgressPlugin(), // shows percent progress in console

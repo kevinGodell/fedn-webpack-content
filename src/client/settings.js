@@ -2,4 +2,12 @@
 
 import { saySomething } from './js/formHandler';
 
-saySomething('something about settings');
+import './styles/resets.scss';
+import './styles/base.scss';
+import './styles/form.scss';
+import './styles/footer.scss';
+import './styles/header.scss';
+
+saySomething('something about setting');
+
+// export { saySomething };

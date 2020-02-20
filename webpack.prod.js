@@ -2,6 +2,9 @@ const { resolve } = require('path');
 const { ProgressPlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -9,6 +12,9 @@ module.exports = {
   entry: {
     index: './src/client/index.js',
     settings: './src/client/settings.js'
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
   },
   module: {
     rules: [
@@ -25,12 +31,16 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[contenthash].bundle.min.js'
   },
   plugins: [
     new ProgressPlugin(), // shows percent progress in console
@@ -57,6 +67,7 @@ module.exports = {
       chunks: ['settings'],
       template: './src/client/views/settings.html',
       filename: 'settings.html'
-    })
+    }),
+    new MiniCssExtractPlugin({ filename: '[name].css' })
   ]
 };
