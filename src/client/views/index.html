@@ -7,10 +7,10 @@
 
   <body>
     <header>
-      <div class="">
+      <div class="logo">
         Logo
       </div>
-      <div class="">
+      <div class="nav">
         navigation
       </div>
     </header>
@@ -19,7 +19,7 @@
 
     <main>
       <section>
-        <form action="/test" method="get">
+        <form action="/test" method="get" onsubmit="return MyLib.submitForm(event)">
           <input name="pass" type="password" value="secret" />
           <button type="submit">submit</button>
         </form>
@@ -31,6 +31,8 @@
     </main>
 
     <footer>
+      <button onclick="MyLib.buttonClick(event);">click me</button>
+      <button onclick="MyLib.reload(event);">reload</button>
       <p>This is a footer</p>
     </footer>
   </body>
