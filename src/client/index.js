@@ -1,5 +1,23 @@
 'use strict';
 
+console.log('before register');
+
+if ('serviceWorker' in navigator) {
+  console.log('serviceWorker in navigator');
+  // window.addEventListener('load', () => {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(registration => {
+      console.log('SW registered: ', registration);
+    })
+    .catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  // });
+}
+
+console.log('after register');
+
 import { submitForm } from './js/formHandler';
 
 // all imported styles will be compiled

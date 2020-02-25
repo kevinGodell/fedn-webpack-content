@@ -41,7 +41,7 @@ module.exports = {
       protectWebpackAssets: false // (true) preserves existing files
     }),
     new HtmlWebPackPlugin({
-      hash: true, // (true) puts hash in src url for cache busting as src="index.bundle.js?c029042eb8fcb12a6f46"
+      hash: false, // (true) puts hash in src url for cache busting as src="index.bundle.js?c029042eb8fcb12a6f46"
       title: 'index title', // inject title, accessed in html as <%= htmlWebpackPlugin.options.title %>
       somethingElse: 'custom property can be accessed in template', // <%= htmlWebpackPlugin.options.somethingElse %>
       inject: true, // (true|'body')|'head'|false, location of script injection
@@ -50,7 +50,7 @@ module.exports = {
       filename: 'index.html' // output file
     }),
     new HtmlWebPackPlugin({
-      hash: true,
+      hash: false,
       title: 'settings title',
       somethingElse: 'custom property can be accessed in template',
       inject: true,

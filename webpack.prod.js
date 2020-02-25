@@ -2,6 +2,7 @@ const WebpackMerge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -39,5 +40,13 @@ module.exports = WebpackMerge(common, {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin({ filename: '[name].css' })]
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    })
+  ]
 });
