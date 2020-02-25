@@ -1,6 +1,9 @@
+# global settings
 [build]
   command = "npm run build"
   publish = "dist"
 
+# target builds from master branch
 [context.production.environment]
-  NODE_ENV = "production"
+  # set NODE_ENV to production to prevent installation of devDependencies
+  NODE_ENV = "development"
