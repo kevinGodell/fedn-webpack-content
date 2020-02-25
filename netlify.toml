@@ -5,5 +5,10 @@
 
 # target builds from master branch
 [context.production.environment]
-  # set NODE_ENV to production to prevent installation of devDependencies
-  NODE_ENV = "development"
+  # prevent installation of devDependencies
+  NODE_ENV = "production"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    cache-control = "max-age=0,no-cache,no-store,must-revalidate,X-Custom-Header=foo"
