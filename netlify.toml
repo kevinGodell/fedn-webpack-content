@@ -12,16 +12,15 @@
   for = "/service-worker.js"
   [headers.values]
     cache-control = "max-age=0,no-cache,no-store,must-revalidate"
-    x-xustom-header = "foo"
+    x-custom-header = "foo"
 
 [[headers]]
   for = "/*"
   [headers.values]
     x-other-header = "bar"
-    server = "some server name"
 
 [[redirects]]
-  from = "/index.html"
-  to = "/"
+  from = "/*"
+  to = "/index.html"
   status = 200
   force = true # COMMENT: ensure that we always redirect
