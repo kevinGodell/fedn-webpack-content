@@ -20,7 +20,7 @@
     x-other-header = "bar"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/index.html"
+  to = "/"
+  status = 301
   force = true # COMMENT: ensure that we always redirect
