@@ -28,7 +28,10 @@ module.exports = {
       {
         test: /\.js$/,
         include: [resolve(__dirname, 'src/client')],
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: false,
+        }
       }
     ]
   },
@@ -36,7 +39,7 @@ module.exports = {
     new ProgressPlugin(), // shows percent progress in console
     new CleanWebpackPlugin({
       dry: false, // (true) simulates removal of files
-      verbose: true, // (true) logs to console
+      verbose: false, // (true) logs to console
       cleanStaleWebpackAssets: true, // (true) removes unused files
       protectWebpackAssets: false // (true) preserves existing files
     }),
