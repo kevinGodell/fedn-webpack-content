@@ -13,5 +13,13 @@ describe('Filter function', () => {
     expect(filterByTerm(input, 'link')).toEqual(output);
 
     expect(filterByTerm(input, 'LINK')).toEqual(output);
+
+    expect(() => {
+      filterByTerm(input, null);
+    }).toThrow('searchTerm cannot be empty');
+
+    expect(() => {
+      filterByTerm([], 'link');
+    }).toThrow('inputArr cannot be empty');
   });
 });

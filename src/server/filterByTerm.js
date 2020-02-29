@@ -1,10 +1,15 @@
-function filterByTerm(inputArr, searchTerm) {
-  if (!searchTerm) throw Error('searchTerm cannot be empty');
-  if (!inputArr.length) throw Error('inputArr cannot be empty'); // new line
+'use strict';
+
+const filterByTerm = (inputArr, searchTerm) => {
+  if (!searchTerm) throw new Error('searchTerm cannot be empty');
+
+  if (!inputArr.length) throw new Error('inputArr cannot be empty');
+
   const regex = new RegExp(searchTerm, 'i');
-  return inputArr.filter(function(arrayElement) {
+
+  return inputArr.filter(arrayElement => {
     return arrayElement.url.match(regex);
   });
-}
+};
 
 module.exports = filterByTerm;
