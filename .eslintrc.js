@@ -1,13 +1,18 @@
 module.exports = {
   env: {
     browser: true,
-    node: true
-    //es6: true
+    commonjs: true,
+    es2017: true,
+    es2020: true,
+    es6: true,
+    jest: true,
+    node: true,
+    serviceworker: true
   },
   extends: ['plugin:prettier/recommended'],
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 9
+    ecmaVersion: 11
   },
   plugins: ['prettier'],
   rules: {
