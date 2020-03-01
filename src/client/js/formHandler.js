@@ -16,9 +16,9 @@ const submitForm = async e => {
     });*/
   try {
     const res = await fetch(action);
-    //console.log(res);
+    // console.log(res);
     const json = await res.json();
-    //console.log(json);
+    // console.log(json);
     document.getElementById('results').innerHTML = json.message;
   } catch (e) {
     console.error(e);
