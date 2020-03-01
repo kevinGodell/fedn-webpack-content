@@ -1,7 +1,7 @@
 {
   "verbose": true,
   "colours": true,
-  "watch": ["src/server"],
+  "watch": ["src/server", "nodemon.json"],
   "ext": "js",
   "delay": 2000,
   "env": {
