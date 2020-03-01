@@ -1,22 +1,6 @@
 'use strict';
 
-console.log('before register');
-
-if ('serviceWorker' in navigator) {
-  console.log('serviceWorker in navigator');
-  // window.addEventListener('load', () => {
-  navigator.serviceWorker
-    .register('/service-worker.js')
-    .then(registration => {
-      console.log('SW registered: ', registration);
-    })
-    .catch(registrationError => {
-      console.log('SW registration failed: ', registrationError);
-    });
-  // });
-}
-
-console.log('after register');
+import { sw } from './js/sw';
 
 import { submitForm } from './js/formHandler';
 
@@ -31,6 +15,8 @@ import './styles/header.scss';
 /* document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', submitForm);
 });*/
+
+sw(); // register service worker (only if NODE_ENV === 'production')
 
 const buttonClick = event => {
   window.location.pathname = '/settings.html';
